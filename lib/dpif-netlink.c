@@ -1993,6 +1993,14 @@ parse_odp_packet(const struct dpif_netlink *dpif, struct ofpbuf *buf,
     type = (genl->cmd == OVS_PACKET_CMD_MISS ? DPIF_UC_MISS
             : genl->cmd == OVS_PACKET_CMD_ACTION ? DPIF_UC_ACTION
             : -1);
+    
+    /*add by Zhiheng Liu, for packet Hash*/
+    /*DPIF_UC_HASH*/
+    if(genl->cmd == OVS_PACKET_CMD_HASH)
+    {
+        type = DPIF_UC_HASH;
+    }
+    
     if (type < 0) {
         return EINVAL;
     }
