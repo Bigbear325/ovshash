@@ -40,6 +40,9 @@
 #include "unixctl.h"
 #include "openvswitch/vlog.h"
 
+/* add Hash interface by zhihengliu */
+#include "hash/hash-interface.h"
+
 #define MAX_QUEUE_LENGTH 512
 #define UPCALL_MAX_BATCH 64
 #define REVALIDATE_MAX_BATCH 50
